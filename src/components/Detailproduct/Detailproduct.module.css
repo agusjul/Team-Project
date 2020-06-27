@@ -1,0 +1,43 @@
+.container {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+}
+
+.container div img {
+    width: 400px;
+    height: auto;
+}
+
+.rincian {
+    width: 100%;
+    margin: 40px 40px 40px 50px;
+}
+
+.rincian h5 {
+    font-weight: normal;
+}
+
+.gambar {
+    margin-left: 40px;
+}
+
+
+.keterangan2 {
+    margin-top: 40px;
+}
+
+
+.bordered {
+    border-width: 15px !important;
+}
+
+.gambargambar {
+    margin-left: 40px !important;
+    width: 50%;
+    margin-top: 40px;
+}
+
+.kalimat {
+    margin-left: 40px !important;
+}

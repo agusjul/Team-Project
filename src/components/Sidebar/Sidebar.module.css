@@ -1,0 +1,8 @@
+div .navigasi {
+    height: 100vh !important;
+    position: fixed !important;
+    display: flex;
+    width: 20% !important;
+    z-index: 9999;
+    margin-top: 40px;
+}
