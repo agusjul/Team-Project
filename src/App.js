@@ -9,6 +9,7 @@ import Detailproduct from './components/Detailproduct/Detailproduct';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
 import Chartpage from './components/Chartpage/Chartpage';
 import Informationpage from './components/Informationpage/Informationpage';
+import Shipingpage from './components/Shipingpage/Shipingpage';
 import Footer from './components/footer/Footer';
 import styles from './App.css'
 import {
@@ -59,6 +60,9 @@ function App() {
             </Route>
             <Route path="/informationpage">
               <Informationpage/>
+            </Route>
+            <Route path="/shipingpage">
+              <Shipingpage/>
             </Route>
           </Switch>
         </Router>

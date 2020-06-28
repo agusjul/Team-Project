@@ -8,6 +8,16 @@
 }
 
 .item {
+    margin: 40px;
     width: 40%;
+}
+
+.ketgambar {
+    display: flex;
+}
+
+.subtotal {
+    display: flex;
+    justify-content: space-between;
 }
 

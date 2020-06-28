@@ -3,10 +3,17 @@ import styles from './Informationpage.module.css';
 import {
     useHistory, withRouter
   } from "react-router-dom";
-  
-import { Form, Button, Col } from 'react-bootstrap';
+import baju1 from '../../img/Productlist/baju1.jpg'
+import { Form, Button, Col, Card, Table } from 'react-bootstrap';
 
 class Informationpage extends React.Component {
+
+    toShipingpage = () => {
+        this.props.history.push({
+            pathname: `/shipingpage`,
+        });
+    }
+
     render(){
         return(
             <div className={styles.container}>
@@ -61,10 +68,10 @@ class Informationpage extends React.Component {
                                 </Form.Group>
                             </Form.Row>
                             <Form.Row className="mt-5">
-                                <Button as={Col} variant="outline-primary" className="mr-5">
+                                <Button as={Col} variant="outline-primary" size="lg" className="mr-5">
                                     Return to cart
                                 </Button>
-                                <Button as={Col} variant="primary" type="submit">
+                                <Button as={Col} variant="primary" size="lg" type="submit" onClick={() =>this.toShipingpage()}>
                                     Continue Shiping
                                 </Button>
                             </Form.Row>
@@ -73,7 +80,93 @@ class Informationpage extends React.Component {
                     </div>
                 </div>
                 <div className={styles.item}>
-                    <h1>Belanjaan</h1>
+                    <div>
+                        <div>
+                        <Table borderless hover>
+                            {/* <thead>
+                                <tr>
+                                <th className={styles.product}></th>
+                                <th className={styles.price}></th>
+                                </tr>
+                            </thead>
+                            <hr/> */}
+                            <tbody>
+                                <tr>
+                                <td>
+                                    <div className={styles.ketgambar}> 
+                                        <div>
+                                        <Card style={{cursor : "pointer", width: "80px", marginRight : "20px"}}>
+                                            <Card.Img variant="top" src={baju1} />
+                                        </Card>
+                                        </div> 
+                                        <div>
+                                            <p style={{fontSize : "18px", margin : "0"}}>Baju Oren</p>
+                                            <p style={{fontSize : "14px", margin : "0"}}>Small / Olive</p>
+                                            <p style={{fontSize : "14px", marginTop : "20px"}}>Remove</p>
+                                        </div>
+                                    
+                                    </div> 
+                                </td>
+                                <td>250,000</td>
+                                </tr>
+                                <tr>
+                                <td>
+                                    <div className={styles.ketgambar}> 
+                                        <div>
+                                        <Card style={{cursor : "pointer", width: "80px", marginRight : "20px"}}>
+                                            <Card.Img variant="top" src={baju1} />
+                                        </Card>
+                                        </div> 
+                                        <div>
+                                            <p style={{fontSize : "18px", margin : "0"}}>Baju Oren</p>
+                                            <p style={{fontSize : "14px", margin : "0"}}>Small / Olive</p>
+                                            <p style={{fontSize : "14px", marginTop : "20px"}}>Remove</p>
+                                        </div>
+                                    
+                                    </div> 
+                                </td>
+                                <td>250,000</td>
+                                </tr>
+                                <tr>
+                                <td>
+                                    <div className={styles.ketgambar}> 
+                                        <div>
+                                        <Card style={{cursor : "pointer", width: "80px", marginRight : "20px"}}>
+                                            <Card.Img variant="top" src={baju1} />
+                                        </Card>
+                                        </div> 
+                                        <div>
+                                            <p style={{fontSize : "18px", margin : "0"}}>Baju Oren</p>
+                                            <p style={{fontSize : "14px", margin : "0"}}>Small / Olive</p>
+                                            <p style={{fontSize : "14px", marginTop : "20px"}}>Remove</p>
+                                        </div>
+                                    
+                                    </div> 
+                                </td>
+                                <td>250,000</td>
+                                </tr>
+                                
+                            </tbody>
+                        </Table>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div className={styles.subtotal}>
+                        <div>
+                            <h6>Subtotal</h6>
+                            <h6>Shipping</h6>
+                        </div>
+                        <div>
+                            <h6>450,000</h6>
+                            <h6>15,000</h6>
+                            
+                        </div>
+                    </div>
+                    <hr/>
+                    <div className={styles.subtotal}>
+                        <h5>Totals</h5>
+                        <h5>465,000</h5>
+                    </div>
                 </div>
                 
             </div>

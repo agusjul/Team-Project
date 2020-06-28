@@ -1,0 +1,43 @@
+.container {
+    margin: 40px;
+    display: flex;
+}
+
+.information {
+    width: 60%;
+}
+
+.item {
+    margin: 40px;
+    width: 40%;
+}
+
+.ketgambar {
+    display: flex;
+}
+
+.subtotal {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact {
+    display: flex;
+}
+
+.contacttitle {
+    color: rgba(0, 0, 0, 0.5);
+    width: 15%;
+    margin: 0;
+}
+
+.contactitem {
+    width: 70%;
+    margin: 0;
+}
+
+.contactbutton {
+    width: 15%;
+    margin: 0;
+    text-decoration: none !important;
+}
