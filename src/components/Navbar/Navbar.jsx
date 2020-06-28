@@ -1,8 +1,19 @@
 import React from 'react';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import styles from './Navbar.module.css'
+import {
+    useHistory, withRouter
+  } from "react-router-dom";
 
 class Navbarcomponent extends React.Component {
+
+    
+    chartPage = () => {
+        this.props.history.push({
+            pathname: `/chartpage`,
+        });
+    }
+
     render(){
         return(
             <div className={styles.header}>
@@ -14,7 +25,7 @@ class Navbarcomponent extends React.Component {
                 </Nav>
                 <Form inline>
                     
-                    <Button variant="primary">Chart</Button>
+                    <Button onClick={() =>this.chartPage()} variant="primary">Chart</Button>
                 </Form>
                 </Navbar>
             </div>
@@ -22,4 +33,4 @@ class Navbarcomponent extends React.Component {
     }
 }
 
-export default Navbarcomponent
+export default withRouter(Navbarcomponent);

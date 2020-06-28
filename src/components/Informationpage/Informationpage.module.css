@@ -1,0 +1,13 @@
+.container {
+    margin: 40px;
+    display: flex;
+}
+
+.information {
+    width: 60%;
+}
+
+.item {
+    width: 40%;
+}
+

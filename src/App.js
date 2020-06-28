@@ -7,6 +7,8 @@ import Listproduct from './components/Listproduct/Listproduct';
 import Sidebar from './components/Sidebar/Sidebar';
 import Detailproduct from './components/Detailproduct/Detailproduct';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
+import Chartpage from './components/Chartpage/Chartpage';
+import Informationpage from './components/Informationpage/Informationpage';
 import Footer from './components/footer/Footer';
 import styles from './App.css'
 import {
@@ -44,6 +46,19 @@ function App() {
                     <Detailproduct /> 
                 </Col>
               </Row>
+            </Route>
+            <Route path="/chartpage">
+            <Row>
+                <Col xl={3}>
+                    <Sidebar/>
+                </Col>
+                <Col xl={9}>              
+                    <Chartpage/>
+                </Col>
+              </Row>
+            </Route>
+            <Route path="/informationpage">
+              <Informationpage/>
             </Route>
           </Switch>
         </Router>

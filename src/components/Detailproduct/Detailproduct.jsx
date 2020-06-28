@@ -73,15 +73,32 @@ class Detailproduct extends React.Component {
             }
             
         ],
+        src : require('../../img/Productlist/baju2.jpg'),
+        cart : {}
     }}
 
     componentDidMount() {
         const {id} = this.props.match.params
         console.log(id);
+        this.setState({
+            src : this.state.dataProducts[id-1].image
+        })
         window.scrollTo(0, 0)
       }
     
+    changeImage(url){
+        this.setState({
+            src : url
+        })
+    }
     
+    addToChart(id){
+        const oldCart = this.state.cart;
+        this.setState({
+            cart : {id}
+        })
+        console.log(this.state.cart);
+    }
 
 
     render(){
@@ -90,7 +107,7 @@ class Detailproduct extends React.Component {
             <div>
                 <div className={styles.container}>
                     <div className={styles.gambar}>
-                        <img src={this.state.dataProducts[id-1].image} alt=""/>
+                        <img src={this.state.src} alt=""/>
                     </div>
                     <div className={styles.rincian}>
                         <div className={styles.keterangan}>
@@ -121,7 +138,7 @@ class Detailproduct extends React.Component {
                             <Button variant="secondary" size="lg" className="mt-2 col-6">
                                 Buy Now
                             </Button><br/>
-                            <Button variant="outline-secondary" size="lg" className= "mt-2 col-6">
+                            <Button onClick={() =>this.addToChart(this.state.dataProducts[id-1].id)} variant="outline-secondary" size="lg" className= "mt-2 col-6">
                                 Add to Chart
                             </Button>
                         </div>                   
@@ -131,7 +148,7 @@ class Detailproduct extends React.Component {
                     <div className={styles.gambargambar}>
                         <CardColumns>
                             {this.state.imageProducts.map((imageProduct) => (
-                                <Card style={{cursor : "pointer",}}>
+                                <Card onClick={() =>this.changeImage(imageProduct.image)} style={{cursor : "pointer"}}>
                                     <Card.Img variant="top" src={imageProduct.image} />
                                 </Card>                         
                                 

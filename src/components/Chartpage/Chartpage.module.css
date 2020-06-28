@@ -1,0 +1,24 @@
+.container {
+    margin: 40px 0;
+}
+
+.product {
+    width: 40%;
+}
+
+.price {
+    width: 20%;
+}
+
+.quantity {
+    width: 20%;
+}
+
+.total {
+    width: 20%;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+}
