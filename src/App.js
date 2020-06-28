@@ -10,6 +10,7 @@ import { Container, Row, Col, Carousel } from 'react-bootstrap';
 import Chartpage from './components/Chartpage/Chartpage';
 import Informationpage from './components/Informationpage/Informationpage';
 import Shipingpage from './components/Shipingpage/Shipingpage';
+import Paymentpage from './components/Paymentpage/Paymentpage';
 import Footer from './components/footer/Footer';
 import styles from './App.css'
 import {
@@ -63,6 +64,9 @@ function App() {
             </Route>
             <Route path="/shipingpage">
               <Shipingpage/>
+            </Route>
+            <Route path="/paymentpage">
+              <Paymentpage/>
             </Route>
           </Switch>
         </Router>

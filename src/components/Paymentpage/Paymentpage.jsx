@@ -1,16 +1,16 @@
 import React from 'react';
-import styles from './Shiping.module.css'
+import styles from './Paymentpage.module.css'
 import {
     useHistory, withRouter
   } from "react-router-dom";
 import baju1 from '../../img/Productlist/baju1.jpg'
 import { Form, Button, Col, Card, Table, ListGroup } from 'react-bootstrap';
 
-class Shipingpage extends React.Component {
+class Paymentpage extends React.Component {
 
-    toPaymentpage = () => {
+    toShipingpage = () => {
         this.props.history.push({
-            pathname: `/paymentpage`,
+            pathname: `/shipingpage`,
         });
     }
 
@@ -36,62 +36,47 @@ class Shipingpage extends React.Component {
                                         <a href="#" className={styles.contactbutton}>Change</a>
                                     </div>
                                 </ListGroup.Item>
+                                <ListGroup.Item>
+                                    <div className={styles.contact}>
+                                        <p className={styles.contacttitle}>Method</p>
+                                        <p className={styles.contactitem}>JNE</p>
+                                        <a href="#" className={styles.contactbutton}>Change</a>
+                                    </div>
+                                </ListGroup.Item>
                             </ListGroup>
                         </div>
                         <div style={{marginTop : "40px"}}>
-                            <h5>Shiping Method</h5>
+                            <h5>Payment</h5>
                             <hr/>
                             <div>
-                                <ListGroup>
-                                    <ListGroup.Item>
-                                        <div className={styles.contact}>
-                                            <Form.Check type="radio" aria-label="radio 1" className={styles.contacttitle}/>
-                                            <div className={styles.contactitem}>
-                                                <p style={{margin : "0"}}>JNE</p>
-                                                <p style={{fontSize : "12px", margin : "0"}}>4 - 7 Hari Pengiriman</p>
-                                            </div>
-                                            <p className={styles.contactbutton}>25,000</p>
-                                        </div>           
-                                    </ListGroup.Item>
-                                    <ListGroup.Item>
-                                        <div className={styles.contact}>
-                                            <Form.Check type="radio" aria-label="radio 1" className={styles.contacttitle}/>
-                                            <div className={styles.contactitem}>
-                                                <p style={{margin : "0"}}>J&T Express</p>
-                                                <p style={{fontSize : "12px", margin : "0"}}>4 - 7 Hari Pengiriman</p>
-                                            </div>
-                                            <p className={styles.contactbutton}>35,000</p>
-                                        </div>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item>
-                                        <div className={styles.contact}>
-                                            <Form.Check type="radio" aria-label="radio 1" className={styles.contacttitle}/>
-                                            <div className={styles.contactitem}>
-                                                <p style={{margin : "0"}}>SiCepat</p>
-                                                <p style={{fontSize : "12px", margin : "0"}}>10 - 12 Hari Pengiriman</p>
-                                            </div>
-                                            <p className={styles.contactbutton}>25,000</p>
-                                        </div>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item>
-                                        <div className={styles.contact}>
-                                            <Form.Check type="radio" aria-label="radio 1" className={styles.contacttitle}/>
-                                            <div className={styles.contactitem}>
-                                                <p style={{margin : "0"}}>POS Indoensia</p>
-                                                <p style={{fontSize : "12px", margin : "0"}}>4 - 7 Hari Pengiriman</p>
-                                            </div>
-                                            <p className={styles.contactbutton}>25,000</p>
-                                        </div>
-                                    </ListGroup.Item>
-                                </ListGroup>
+                                <Card>
+                                    <Card.Header as="h6">Transfer Bank</Card.Header>
+                                    <Card.Body>
+                                        <Form>
+                                            <Form.Group controlId="formGroupEmail">
+                                                <Form.Label>Jenis Bank</Form.Label>
+                                                <Form.Control as="select" defaultValue="Choose...">
+                                                    <option>BNI</option>
+                                                    <option>BRI</option>
+                                                    <option>Mandiri</option>
+                                                    <option>BCA</option>
+                                                </Form.Control>
+                                            </Form.Group>
+                                            <Form.Group controlId="formGroupPassword">
+                                                <Form.Label>No Rekening</Form.Label>
+                                                <Form.Control type="password" placeholder="No Rekening" />
+                                            </Form.Group>
+                                        </Form>
+                                    </Card.Body>
+                                </Card>
                             </div>
                         </div>
                         <div style={{display : "flex", marginTop : "40px"}}>
                             <Button as={Col} variant="outline-primary" size="lg" className="mr-5">
-                                Return Information Details
+                                Return Shipping
                             </Button>
-                            <Button as={Col} variant="primary" size="lg" type="submit" onClick={() =>this.toPaymentpage()}>
-                                Continue Payment
+                            <Button as={Col} variant="primary" size="lg" type="submit" onClick={() =>this.toShipingpage()}>
+                                Pay Now
                             </Button>
                         </div>
                     </div>
@@ -191,5 +176,5 @@ class Shipingpage extends React.Component {
     }
 }
 
-export default withRouter(Shipingpage);
+export default withRouter(Paymentpage);
 
