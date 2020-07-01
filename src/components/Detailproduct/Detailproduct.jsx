@@ -6,82 +6,30 @@ import {
   } from "react-router-dom";
 import Carouselproduct from '../Carouselproduct/Carouselproduct';
 import Footer from '../footer/Footer';
+import axios from 'axios';
 
 class Detailproduct extends React.Component {
     constructor(props){
         super(props)
 
     this.state = {
-        dataProducts : [
-            {
-                id : 1,
-                namaProduct : 'Baju Orange',
-                harga : 'IDR 200,000',
-                image : require('../../img/Productlist/baju1.jpg')
-            },
-            {
-                id : 2,
-                namaProduct : 'Baju Orange',
-                harga : 'IDR 200,000',
-                image : require('../../img/Productlist/baju2.jpg')
-            },
-            {
-                id : 3,
-                namaProduct : 'Baju Orange',
-                harga : 'IDR 200,000',
-                image : require('../../img/Productlist/baju3.jpg')
-            },
-            {
-                id : 4,
-                namaProduct : 'Baju Orange',
-                harga : 'IDR 200,000',
-                image : require('../../img/Productlist/baju1.jpg')
-            },
-            {
-                id : 5,
-                namaProduct : 'Baju Orange',
-                harga : 'IDR 200,000',
-                image : require('../../img/Productlist/baju2.jpg')
-            },
-            {
-                id : 6,
-                namaProduct : 'Baju Orange',
-                harga : 'IDR 200,000',
-                image : require('../../img/Productlist/baju3.jpg')
-            }
-        ],
-        imageProducts : [
-            {
-                id : 1,
-                image : require('../../img/Productlist/baju1.jpg')
-            },
-            {
-                id : 2,
-                image : require('../../img/Productlist/baju2.jpg')
-            },
-            {
-                id : 3,
-                image : require('../../img/Productlist/baju3.jpg')
-            },
-            {
-                id : 4,
-                image : require('../../img/Productlist/baju1.jpg')
-            },
-            {
-                id : 5,
-                image : require('../../img/Productlist/baju2.jpg')
-            }
-            
-        ],
+        Products : [],
         src : require('../../img/Productlist/baju2.jpg'),
         cart : {}
     }}
 
-    componentDidMount() {
+    async componentDidMount() {
         const {id} = this.props.match.params
         console.log(id);
-        this.setState({
-            src : this.state.dataProducts[id-1].image
+        await axios.get(`http://localhost:8000/produk/${id}`)
+        .then(res => {
+          
+          const productdata = res.data;
+          this.setState({
+              Products : productdata})
+            this.setState({
+                src : this.state.Products.gambarProduk
+            })
         })
         window.scrollTo(0, 0)
       }
@@ -111,8 +59,8 @@ class Detailproduct extends React.Component {
                     </div>
                     <div className={styles.rincian}>
                         <div className={styles.keterangan}>
-                            <h2>{this.state.dataProducts[id-1].namaProduct}</h2>
-                            <h5> {this.state.dataProducts[id-1].harga}</h5>
+                            <h2>{this.state.Products.namaProduk}</h2>
+                            <h5> {this.state.Products.hargaProduk}</h5>
                         </div>
                         <div className={styles.keterangan2}>
                             <Form>
@@ -147,18 +95,26 @@ class Detailproduct extends React.Component {
                 <div>
                     <div className={styles.gambargambar}>
                         <CardColumns>
-                            {this.state.imageProducts.map((imageProduct) => (
-                                <Card onClick={() =>this.changeImage(imageProduct.image)} style={{cursor : "pointer"}}>
-                                    <Card.Img variant="top" src={imageProduct.image} />
-                                </Card>                         
-                                
-                            ))}
+                            <Card onClick={() =>this.changeImage(this.state.Products.gambarProduk)} style={{cursor : "pointer"}}>
+                                <Card.Img variant="top" src={(this.state.Products.gambarProduk)} />
+                            </Card> 
+                            <Card onClick={() =>this.changeImage(this.state.Products.gambarProduk2)} style={{cursor : "pointer"}}>
+                                <Card.Img variant="top" src={(this.state.Products.gambarProduk2)} />
+                            </Card> 
+                            <Card onClick={() =>this.changeImage(this.state.Products.gambarProduk3)} style={{cursor : "pointer"}}>
+                                <Card.Img variant="top" src={(this.state.Products.gambarProduk3)} />
+                            </Card> 
+                            <Card onClick={() =>this.changeImage(this.state.Products.gambarProduk4)} style={{cursor : "pointer"}}>
+                                <Card.Img variant="top" src={(this.state.Products.gambarProduk4)} />
+                            </Card> 
+                            {/* <Card onClick={() =>this.changeImage(this.state.Products.gambarProduk5)} style={{cursor : "pointer"}}>
+                                <Card.Img variant="top" src={(this.state.Products.gambarProduk5)} />
+                            </Card>  */}
                         </CardColumns>
                     </div>
                     <div className={styles.kalimat}>
                         <p>
-                        This is a demonstration store. You can purchase products like this from Sergeant Pepper Clothing Co..
-                        Featuring the STEALTH zip up 2-in-1 quilted bomber jacket. This camo printed jacket portrays a traditional bomber silhouette and is constructed from high quality woven nylon. This style features detachable sleeves which lends itself to be worn as a sleeveless or full sleeved bomber. The finer details include a left chest chevron shield, SERGEANT PEPPER embroidered right sleeve applique and branded tag on the left sleeve pocket. An exceptional transitional item to have!
+                        {this.state.Products.keteranganProduk}
                         </p>
                     </div>
                     <div className={styles.kalimat}>
